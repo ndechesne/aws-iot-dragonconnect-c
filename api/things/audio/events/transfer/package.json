@@ -1,0 +1,8 @@
+{
+  "name": "dragonspeak-things-audio-events-transfer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "dragonspeak-lib": "0.1.0"
+  }
+}
