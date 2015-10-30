@@ -1,4 +1,4 @@
-# aws-iot-thing-sdk-dragonconnect-c
+# aws-iot-dragonconnect-c
 
 # Introduction
 The DragonConnect project demonstrates recording events originating from
