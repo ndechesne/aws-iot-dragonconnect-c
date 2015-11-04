@@ -1,5 +1,3 @@
-CC = gcc
-
 #remove @ for no make command prints
 DEBUG=@
 
