@@ -36,19 +36,12 @@ MQTT_INCLUDE_DIR += -I $(MQTT_C_DIR)
 MQTT_SRC_FILES += $(shell find $(MQTT_EMB_DIR)/ -name '*.c')
 MQTT_SRC_FILES += $(MQTT_C_DIR)/MQTTClient.c
 
-
 #TLS - openSSL
-TLS_LIB_DIR = /usr/lib/
-TLS_INCLUDE_DIR = -I /usr/include/openssl
-EXTERNAL_LIBS += -L$(TLS_LIB_DIR)
-LD_FLAG += -Wl,-rpath,$(TLS_LIB_DIR)
-LD_FLAG += -ldl -lssl -lcrypto -lm
-
 #lib
-GLIB_INCLUDE_DIR = -I /usr/include/glib-2.0
-#GLIB_INCLUDE_DIR += -I /usr/lib/x86_64-linux-gnu/glib-2.0/include
-GLIB_INCLUDE_DIR += -I /usr/lib/aarch64-linux-gnu/glib-2.0/include
-LD_FLAG += -lglib-2.0
+LD_FLAG += -ldl -lm
+LD_FLAG += `pkg-config --cflags --libs glib-2.0`
+LD_FLAG += `pkg-config --cflags --libs libssl`
+LD_FLAG += `pkg-config --cflags --libs libcrypto`
 
 #Aggregate all include and src directories
 INCLUDE_ALL_DIRS += $(IOT_INCLUDE_DIRS) 
